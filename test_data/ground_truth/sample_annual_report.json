@@ -1,0 +1,174 @@
+{
+  "document_metadata": {
+    "company_name": "Test Company Ltd",
+    "report_type": "ANNUAL",
+    "fiscal_period_end": "2023-12-31",
+    "currency": "GBP",
+    "scale": "millions"
+  },
+  "expected_sections": [
+    {
+      "section_type": "income_statement",
+      "start_page": 1,
+      "end_page": 1,
+      "title": "Consolidated Income Statement"
+    },
+    {
+      "section_type": "balance_sheet",
+      "start_page": 2,
+      "end_page": 2,
+      "title": "Consolidated Balance Sheet"
+    },
+    {
+      "section_type": "cash_flow_statement",
+      "start_page": 3,
+      "end_page": 3,
+      "title": "Consolidated Cash Flow Statement"
+    }
+  ],
+  "expected_metrics": [
+    {
+      "metric_name": "revenue",
+      "value": 1000.5,
+      "currency": "GBP",
+      "scale": "millions",
+      "period_end_date": "2023-12-31",
+      "section_type": "income_statement",
+      "evidence": {
+        "page": 1,
+        "table_row": 1,
+        "table_col": 1
+      }
+    },
+    {
+      "metric_name": "revenue",
+      "value": 900.2,
+      "currency": "GBP",
+      "scale": "millions",
+      "period_end_date": "2022-12-31",
+      "section_type": "income_statement",
+      "evidence": {
+        "page": 1,
+        "table_row": 1,
+        "table_col": 2
+      }
+    },
+    {
+      "metric_name": "gross_profit",
+      "value": 400.2,
+      "currency": "GBP",
+      "scale": "millions",
+      "period_end_date": "2023-12-31",
+      "section_type": "income_statement",
+      "evidence": {
+        "page": 1,
+        "table_row": 3,
+        "table_col": 1
+      }
+    },
+    {
+      "metric_name": "operating_profit",
+      "value": 200.1,
+      "currency": "GBP",
+      "scale": "millions",
+      "period_end_date": "2023-12-31",
+      "section_type": "income_statement",
+      "evidence": {
+        "page": 1,
+        "table_row": 5,
+        "table_col": 1
+      }
+    },
+    {
+      "metric_name": "net_income",
+      "value": 100.2,
+      "currency": "GBP",
+      "scale": "millions",
+      "period_end_date": "2023-12-31",
+      "section_type": "income_statement",
+      "evidence": {
+        "page": 1,
+        "table_row": 9,
+        "table_col": 1
+      }
+    },
+    {
+      "metric_name": "total_assets",
+      "value": 2500.0,
+      "currency": "GBP",
+      "scale": "millions",
+      "period_end_date": "2023-12-31",
+      "section_type": "balance_sheet",
+      "evidence": {
+        "page": 2,
+        "table_row": 10,
+        "table_col": 1
+      }
+    },
+    {
+      "metric_name": "total_equity",
+      "value": 1500.0,
+      "currency": "GBP",
+      "scale": "millions",
+      "period_end_date": "2023-12-31",
+      "section_type": "balance_sheet",
+      "evidence": {
+        "page": 2,
+        "table_row": 15,
+        "table_col": 1
+      }
+    },
+    {
+      "metric_name": "operating_cash_flow",
+      "value": 250.5,
+      "currency": "GBP",
+      "scale": "millions",
+      "period_end_date": "2023-12-31",
+      "section_type": "cash_flow_statement",
+      "evidence": {
+        "page": 3,
+        "table_row": 5,
+        "table_col": 1
+      }
+    }
+  ],
+  "expected_derived_metrics": [
+    {
+      "metric_name": "revenue_growth_yoy",
+      "value": 11.14,
+      "unit": "percent",
+      "calculation": "(1000.5 - 900.2) / 900.2 * 100"
+    },
+    {
+      "metric_name": "gross_margin",
+      "value": 40.0,
+      "unit": "percent",
+      "calculation": "400.2 / 1000.5 * 100"
+    },
+    {
+      "metric_name": "operating_margin",
+      "value": 20.0,
+      "unit": "percent",
+      "calculation": "200.1 / 1000.5 * 100"
+    },
+    {
+      "metric_name": "net_margin",
+      "value": 10.0,
+      "unit": "percent",
+      "calculation": "100.2 / 1000.5 * 100"
+    },
+    {
+      "metric_name": "roe",
+      "value": 6.68,
+      "unit": "percent",
+      "calculation": "100.2 / 1500.0 * 100"
+    }
+  ],
+  "validation_notes": [
+    "All values in GBP millions",
+    "Revenue growth YoY should be approximately 11.14%",
+    "Gross margin should be approximately 40%",
+    "Operating margin should be approximately 20%",
+    "Net margin should be approximately 10%"
+  ]
+}

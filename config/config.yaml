@@ -1,0 +1,114 @@
+# Application Configuration
+app:
+  name: "AI Financial Agent"
+  version: "0.1.0"
+  environment: "development"  # development, production
+
+# PDF Processing Configuration
+pdf:
+  parser_priority:
+    - "pymupdf"
+    - "pdfplumber"
+    - "camelot"
+  parser_timeout: 300  # seconds
+  max_file_size_mb: 100
+  
+# Section Detection Configuration
+section_detection:
+  regex_weight: 0.7
+  embedding_weight: 0.3
+  similarity_threshold: 0.75
+  embedding_model: "sentence-transformers/all-MiniLM-L6-v2"
+  
+  # Section patterns for regex matching
+  patterns:
+    income_statement:
+      - "income statement"
+      - "statement of comprehensive income"
+      - "profit and loss"
+      - "profit & loss"
+      - "p&l statement"
+    cash_flow:
+      - "cash flow statement"
+      - "statement of cash flows"
+      - "cashflow statement"
+    balance_sheet:
+      - "balance sheet"
+      - "statement of financial position"
+      - "borrowings"
+      - "debt"
+    notes:
+      - "notes to the financial statements"
+      - "notes to financial statements"
+
+# Table Extraction Configuration
+table_extraction:
+  min_rows: 2
+  min_columns: 2
+  detect_merged_cells: true
+  extract_footnotes: true
+
+# Metric Normalization
+normalization:
+  default_currency: "GBP"
+  default_scale: "millions"
+  supported_currencies:
+    - "GBP"
+    - "USD"
+    - "EUR"
+  supported_scales:
+    - "actual"
+    - "thousands"
+    - "millions"
+    - "billions"
+  
+# Validation Configuration
+validation:
+  yoy_growth_max: 5.0  # 500%
+  yoy_growth_min: -0.9  # -90%
+  margin_max: 1.0  # 100%
+  margin_min: -1.0  # -100%
+  significant_change_threshold: 0.1  # 10%
+  
+# LLM Configuration
+llm:
+  provider: "openai"  # openai, anthropic, etc.
+  model: "gpt-4o-mini"
+  temperature: 0.1
+  max_tokens: 4000
+  timeout: 60
+  max_retries: 3
+  retry_delay: 2
+  
+# RAG Configuration
+rag:
+  chunk_size: 500
+  chunk_overlap: 50
+  top_k_retrieval: 10
+  vector_store: "faiss"  # faiss, chroma
+  embedding_model: "sentence-transformers/all-MiniLM-L6-v2"
+
+# Export Configuration
+export:
+  output_directory: "./output"
+  word_template_path: "./templates/word/financial_report_template.docx"
+  excel_template_path: "./templates/excel/financial_metrics_template.xlsx"
+  include_audit_trail: true
+  
+# Logging Configuration
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  format: "json"  # json, text
+  output:
+    - "console"
+    - "file"
+  file_path: "./logs/financial_agent.log"
+  max_file_size_mb: 50
+  backup_count: 5
+  
+# Performance Configuration
+performance:
+  enable_caching: true
+  cache_ttl_hours: 24
+  parallel_processing: true
+  max_workers: 4

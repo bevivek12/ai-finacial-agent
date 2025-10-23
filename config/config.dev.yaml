@@ -1,0 +1,13 @@
+# Environment-specific overrides for development
+app:
+  environment: "development"
+
+llm:
+  model: "gpt-4o-mini"
+  temperature: 0.1
+
+logging:
+  level: "DEBUG"
+  
+performance:
+  max_workers: 2

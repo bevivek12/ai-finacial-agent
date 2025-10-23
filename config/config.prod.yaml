@@ -1,0 +1,14 @@
+# Environment-specific overrides for production
+app:
+  environment: "production"
+
+llm:
+  model: "gpt-4o"
+  max_tokens: 8000
+
+logging:
+  level: "INFO"
+  
+performance:
+  max_workers: 8
+  enable_caching: true
